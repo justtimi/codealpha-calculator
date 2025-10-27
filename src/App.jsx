@@ -8,6 +8,8 @@ const App = () => {
           Scientific Calculator (dev)
         </h1>
         <p className="text-sm text-slate-600 mt-2">Day 1 — setup complete</p>
+
+        
       </div>
     </div>
   )
