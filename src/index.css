@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+
+  /* === Light mode === */
+  --color-bg-light: #f3f5f8;
+  --color-surface-light: #ffffff;
+  --color-text-light: #0f1724;
+  --color-accent: #ff9f1c;
+
+  --shadow-soft-light: 6px 6px 12px rgba(16, 24, 40, 0.06),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+  --shadow-inset-light: inset 6px 6px 12px rgba(12, 20, 40, 0.04),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+
+  /* === Dark mode === */
+  --color-bg-dark: #0b0f16;
+  --color-surface-dark: #0f1724;
+  --color-text-dark: #e6eef8;
+
+  --shadow-soft-dark: 6px 6px 12px rgba(0, 0, 0, 0.6),
+    -6px -6px 12px rgba(255, 255, 255, 0.04);
+  --shadow-inset-dark: inset 6px 6px 12px rgba(0, 0, 0, 0.6),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.04);
+}

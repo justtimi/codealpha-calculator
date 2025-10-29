@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useState } from "react";
+import Calculator from "./components/Calculator.jsx";
+import BackgroundImage from "./assets/images/BackgroundPattern.jsx";
+import { log } from "mathjs";
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(true);
+  let darkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
-      <div className="p-6 bg-white/60 dark:bg-slate-800/60 rounded-2xl shadow">
-        <h1 className="text-2xl font-semibold text-slate-800 dark:text-slate-100">
-          Scientific Calculator (dev)
-        </h1>
-        <p className="text-sm text-slate-600 mt-2">Day 1 — setup complete</p>
+    <div
+      className={`${
+        darkMode ? "dark" : ""
+      } relative min-h-screen flex items-center justify-center bg-transparent text-gray-900 dark:text-gray-100`}
+    >
+      <BackgroundImage />
 
-        
+      <div className="relative z-10 w-full max-w-sm">
+        <Calculator toggle={darkModeToggle} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
