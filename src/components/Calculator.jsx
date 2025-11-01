@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Display from "./Display.jsx";
 import Button from "./Button.jsx";
 
-const Calculator = ({ toggle }) => {
+const Calculator = ({ toggle, state }) => {
   const [isScientific, setIsScientific] = useState(false);
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
@@ -60,6 +60,7 @@ const Calculator = ({ toggle }) => {
 
   return (
     <div className="flex flex-col items-center justify-center rounded-[28px] p-6 bg-surface-light/20 dark:bg-surface-dark/300 backdrop-blur-xl border border-white/20 dark:border-slate-800/40 shadow-soft-light dark:shadow-soft-dark transition-colors duration-300">
+      <button className="absolute top-0 left-0" onClick={toggle}>Toggle {state ? "Light": "Dark"} Mode</button>
       <Display input={<BlockMath math={latex} />} result={result} />
 
       <button onClick={() => setIsScientific(!isScientific)}>
