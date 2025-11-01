@@ -4,7 +4,7 @@ import BackgroundImage from "./assets/images/BackgroundPattern.jsx";
 import { log } from "mathjs";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   let darkModeToggle = () => {
     setDarkMode(!darkMode);
   };
