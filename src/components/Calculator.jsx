@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { evaluate, parse } from "mathjs";
 import { BlockMath } from "react-katex";
 import { motion, AnimatePresence } from "framer-motion";
@@ -58,9 +58,20 @@ const Calculator = ({ toggle, state }) => {
     latex = input;
   }
 
+  useEffect(() => {
+    const savedMode = localStorage.getItem("isScientific");
+    if (savedMode) setIsScientific(savedMode === "true");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("isScientific", isScientific);
+  }, [isScientific]);
+
   return (
     <div className="flex flex-col items-center justify-center rounded-[28px] p-6 bg-surface-light/20 dark:bg-surface-dark/300 backdrop-blur-xl border border-white/20 dark:border-slate-800/40 shadow-soft-light dark:shadow-soft-dark transition-colors duration-300">
-      <button className="absolute top-0 left-0" onClick={toggle}>Toggle {state ? "Light": "Dark"} Mode</button>
+      <button className="absolute top-0 left-0" onClick={toggle}>
+        Toggle {state ? "Light" : "Dark"} Mode
+      </button>
       <Display input={<BlockMath math={latex} />} result={result} />
 
       <button onClick={() => setIsScientific(!isScientific)}>

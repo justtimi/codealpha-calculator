@@ -8,6 +8,15 @@ const App = () => {
     setTheme(!theme);
   };
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) setTheme(savedTheme === "dark");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme ? "dark" : "light");
+  }, [theme]);
+
   return (
     <div
       className={`${
